@@ -38,7 +38,7 @@ this.SearchBox = function(ItemName,number){
    SearchBtn.click();
    browser.sleep(1000);
 
-   // Verify the Shoe page by url
+   // Verify the Shoe page
    expect(browser.getCurrentUrl()).toContain('https://www.amazon.in/s?k=lancer+shoes');
    
    // Click on any Item ( Shoe )
@@ -59,12 +59,13 @@ this.SearchBox = function(ItemName,number){
   // Verify the page
   expect(browser.getCurrentUrl()).toContain('https://www.amazon.in/gp/');
 
-  // Verify the Cart Page
-  var cartoption = element(by.cssContainingText('[class="a-button-text a-text-center"]','Proceed to Buy (1 item)'));
+  // Proceed to Cart
+  var cartoption = element(by.id('hlb-view-cart-announce'));
   cartoption.isPresent().then(function(bln){
    if(bln==true){
        cartoption.click();
        browser.sleep(1000);
+       expect(browser.getCurrentUrl()).toContain('https://www.amazon.in/gp/cart/');
    }
    else{
        throw "Exception - Item not added";
@@ -74,7 +75,7 @@ this.SearchBox = function(ItemName,number){
   //return to main window
   windowhandle(0);
   browser.sleep(1000);
-  
+  browser.close();
 };
 // Window Handle Function
 function windowhandle(n)
