@@ -6,7 +6,7 @@
 		4. npm install jasmine-spec-reporter --save-dev (for readable console)
 */
 var SpecReporter = require('jasmine-spec-reporter').SpecReporter;
-var jasmineReporters = require('jasmine-reporters');
+var jasmineReporters = require('C:\\Users\\user\\AppData\\Roaming\\npm\\node_modules\\jasmine\\lib\\reporters');
 var HtmlScreenshotReporter = require('protractor-jasmine2-screenshot-reporter');
 var numberMap = {
 	"0": "00", "1": "01", "2": "02", "3": "03", "4": "04", "5": "05", "6": "06", "7": "07", "8": "08", "9": "09", "10": "10", 
@@ -60,6 +60,7 @@ exports.config = {
 		jasmine.getEnv().addReporter(reporter);
 		jasmine.getEnv().addReporter(reporterJUnit);
 		jasmine.getEnv().addReporter(specReport);
+		
 	},
 
 	// Close the report after all tests finish
@@ -71,25 +72,17 @@ exports.config = {
 	
 	useAllAngular2AppRoots: true,
 	framework: 'jasmine',
-		
-	/*capabilities: {
-		//browserName: 'internet explorer',
-		'browserName': 'chrome',
-		'chromeOptions': {
-			'binary': 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe'
-        }
-	},*/
 	  
 	 capabilities: {
     browserName: 'chrome',
     chromeOptions: {
         args: [
-            '--start-maximized'//,'--headless', '--disable-gpu', '--window-size=800,600'
+            '--start-maximized'
         ]
     }
 	
 },
-	//seleniumAddress: 'http://localhost:4444/wd/hub',
+	seleniumAddress: 'http://localhost:4444/wd/hub',
 
 	specs: [ 
    'TC01_Test_Amazon_LoginCart.js'

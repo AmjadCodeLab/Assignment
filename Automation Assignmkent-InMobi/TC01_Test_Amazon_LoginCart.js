@@ -1,6 +1,6 @@
 var AmazonTest = require('\.MainPage.js');
 
-var ItemName = "Lancer Mens Formal Shoes";
+var ItemName = "Lancer Men Formal Shoes";
 var number ='1';
 describe('To Add Show In Amazon Card Page', function() {
 
